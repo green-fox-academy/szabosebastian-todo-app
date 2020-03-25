@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataList {
+  int counter = 1;
+  List<String> lines = new ArrayList<>();
+  Path filePath = Paths.get("src/todo_app/data.txt");
 
   public void fileReader() {
-    int counter = 1;
-    Path filePath = Paths.get("src/todo_app/data.txt");
-    List<String> lines = new ArrayList<>();
-
     try {
       lines = Files.readAllLines(filePath);
-
     } catch (Exception e) {
     }
+  }
 
+  public void filePrinter() {
     if (lines.size() == 0) {
       System.out.println("No todos for today! :)");
     } else {
