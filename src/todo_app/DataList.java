@@ -10,7 +10,7 @@ public class DataList {
 
   public void fileReader() {
     int counter = 1;
-    Path filePath = Paths.get("C:/GF/szabosebastian-todo-app/src/todo_app/data.txt");
+    Path filePath = Paths.get("src/todo_app/data.txt");
     List<String> lines = new ArrayList<>();
 
     try {
