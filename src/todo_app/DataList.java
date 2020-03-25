@@ -17,12 +17,15 @@ public class DataList {
       lines = Files.readAllLines(filePath);
 
     } catch (Exception e) {
-      System.out.println("asd");
     }
 
-    for (String line: lines) {
-      System.out.println(counter + " - " +line);
-      counter++;
+    if (lines.size() == 0) {
+      System.out.println("No todos for today! :)");
+    } else {
+      for (String line : lines) {
+        System.out.println(counter + " - " + line);
+        counter++;
+      }
     }
   }
 }
