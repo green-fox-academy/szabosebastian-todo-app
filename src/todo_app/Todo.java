@@ -24,10 +24,14 @@ public class Todo {
         AddTask addPlusRow = new AddTask(args[1].toString());
         addPlusRow.fileWriter();
       }
+
+      //When the application is ran with the -c 2 argument, then it should check the second task from the file
+      if (args[0].equals("-c")) {
+        CheckTask checkTask = new CheckTask(Integer.parseInt(args[1]));
+        checkTask.crossTheCorrectRow();
+      }
     } catch (Exception e) {
 
     }
-
-
   }
 }
