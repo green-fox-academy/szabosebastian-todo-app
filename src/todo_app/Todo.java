@@ -30,6 +30,16 @@ public class Todo {
         CheckTask checkTask = new CheckTask(Integer.parseInt(args[1]));
         checkTask.crossTheCorrectRow();
       }
+
+      //When the application is ran with the -r 2 argument, then it should remove the second task from the file
+      if(args[0].equals("-r")) {
+        RemoveTask removeRow = new RemoveTask(Integer.parseInt(args[1]));
+        removeRow.removeTheCorrectRow();
+      }
+
+      else {
+        System.out.println("Unsupported argument");
+      }
     } catch (Exception e) {
 
     }
