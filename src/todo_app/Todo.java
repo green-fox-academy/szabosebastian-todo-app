@@ -1,8 +1,11 @@
 package todo_app;
 
 public class Todo {
+
+
   public static void main(String[] args) {
 
+    NumericChacker num = new NumericChacker();
 
     try {
       //When the application is ran without any arguments
@@ -36,19 +39,25 @@ public class Todo {
       }
 
       //When the application is ran with the -r 2 argument, then it should remove the second task from the file
-      else if(args[0].equals("-r") && args.length > 1) {
+      //When the application is ran with the -r 20 argument, then it should show an error message like: Unable to remove: index is out of bound
+      else if (args[0].equals("-r") && args.length > 1 && num.isNumeric(args[1]) == true) {
         RemoveTask removeRow = new RemoveTask(Integer.parseInt(args[1]));
         removeRow.removeTheCorrectRow();
       }
 
-      else if(args[0].equals("-r") && args.length == 1) {
-        System.out.println("Unable to remove: no index provided");
+      //When the application is ran with the -r apple argument, then it should show an error message like: Unable to remove: index is not a number
+      else if (args[0].equals("-r") && args.length > 1 && num.isNumeric(args[1]) == false) {
+        System.out.println("Unable to remove: index is not a number");
       }
 
-      else {
+      //When the application is ran with the -r argument, then it should show an error message like: Unable to remove: no index provided
+      else if (args[0].equals("-r") && args.length == 1) {
+        System.out.println("Unable to remove: no index provided");
+      } else {
         System.out.println("Unsupported argument");
       }
     } catch (Exception e) {
     }
   }
 }
+

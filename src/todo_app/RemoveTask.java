@@ -16,7 +16,11 @@ public class RemoveTask extends DataList{
   public void removeTheCorrectRow() {
     super.fileReader();
 
-    if (lines.size() >= 2) {
+    if (checkNumber > lines.size()) {
+      System.out.println("Unable to remove: index is out of bound");
+    }
+
+    else if (lines.size() >= 2) {
       lines.remove(checkNumber-1);
     }
 
