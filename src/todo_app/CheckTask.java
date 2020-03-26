@@ -22,7 +22,7 @@ public class CheckTask extends DataList {
     }
 
     if (lines.size() >= 2) {
-      lines.set(checkNumber - 1, "+ " + lines.get(checkNumber - 1));
+      lines.set(checkNumber - 1, "+" + lines.get(checkNumber - 1));
     }
 
     try {

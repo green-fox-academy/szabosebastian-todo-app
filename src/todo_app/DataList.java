@@ -23,7 +23,11 @@ public class DataList {
       System.out.println("No todos for today! :)");
     } else {
       for (String line : lines) {
-        System.out.println(counter + " - " + line);
+        if (line.charAt(0) == '+') {
+          System.out.println(counter + " - [" + line.charAt(0) + "] " + line.substring(1, line.length()));
+        } else {
+          System.out.println(counter + " - [ ] " + line);
+        }
         counter++;
       }
     }
