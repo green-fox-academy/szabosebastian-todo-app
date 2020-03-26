@@ -32,8 +32,18 @@ public class Todo {
         System.out.println("Unable to add: no task provided");
       }
 
+      //When the application is ran with the -c apple argument, then it should show an error message like: Unable to check: index is not a number
+      else if (args[0].equals("-c") && args.length > 1 && num.isNumeric(args[1]) == false) {
+        System.out.println("Unable to remove: index is not a number");
+      }
+
+      //When the application is ran with the -c argument, then it should show an error message like: Unable to check: no index provided
+      else if (args[0].equals("-c") && args.length == 1) {
+        System.out.println("Unable to check: no index provided");
+      }
+
       //When the application is ran with the -c 2 argument, then it should check the second task from the file
-      else if (args[0].equals("-c")) {
+      else if (args[0].equals("-c") && args.length > 1 && num.isNumeric(args[1]) == true) {
         CheckTask checkTask = new CheckTask(Integer.parseInt(args[1]));
         checkTask.crossTheCorrectRow();
       }
